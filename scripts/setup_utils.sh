@@ -20,10 +20,17 @@ cd redis-stable
 make distclean  // Ubuntu systems only
 make
 
-# ==== Install memcached-tool
+# === Install memcached-tool
 curl "https://raw.githubusercontent.com/memcached/memcached/master/scripts/memcached-tool" -o "memcached-tool"
 chmod a+x memcached-tool
 mv memcached-tool /usr/bin/memcached-tool
+
+# === Install MySQL Client (mariadb)
+yum install -y mysql
+
+# === Install Monitoring Tools
+yum install -y sysstat
+yum install -y psmisc
 
 # === Insert a function to .bashrc to list Instances in a region ===
 # - Install jq package
@@ -40,3 +47,4 @@ ec2-instance-list () {
   --output text
 }
 EOF
+
